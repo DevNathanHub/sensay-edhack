@@ -8,10 +8,10 @@ import RedeemKeyModal from '@/components/RedeemKeyModal';
 import EnvChecker from '@/components/EnvChecker';
 import { SAMPLE_USER_ID, SAMPLE_REPLICA_SLUG, API_VERSION } from '@/constants/auth';
 
-export default function Home() {
+export default function Home() {  
   const [activeTab, setActiveTab] = useState<'chat' | 'code'>('chat');
   const [isRedeemModalOpen, setIsRedeemModalOpen] = useState(false);
-  
+
   const codeExamples = {
     initialization: `
 import { SensayAPI } from '@/sensay-sdk';
@@ -186,6 +186,27 @@ console.log(response.choices[0].message.content);
             >
               GitHub Repo
             </a>
+            <Link
+              href="/auth/login"
+              className="btn btn-secondary"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                window.open('/auth/login', '_self'); 
+              }}
+            >
+              Login
+            </Link>
+            <Link
+              href="/profile"
+              className="btn btn-secondary"
+              onClick={(e) => { 
+                e.preventDefault(); 
+                window.open('/profile', '_self'); 
+              }}
+            >
+              Profile
+            </Link>
+            
           </div>
         </div>
         
